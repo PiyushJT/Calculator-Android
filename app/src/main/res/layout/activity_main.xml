@@ -59,9 +59,9 @@
 
 
     <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/flow"
+        android:id="@+id/claculations"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="130dp"
         android:layout_marginTop="40dp"
         android:background="#4F5255"
         app:constraint_referenced_ids="editText"
@@ -80,17 +80,285 @@
         android:text="0"
         android:textColor="@color/white"
         android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="@+id/flow"
-        app:layout_constraintEnd_toEndOf="@+id/flow" />
+        app:layout_constraintBottom_toBottomOf="@+id/claculations"
+        app:layout_constraintEnd_toEndOf="@+id/claculations" />
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group2"
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/btnLn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        android:layout_marginTop="32dp"
+        app:constraint_referenced_ids="button1, button2, button3, button4"
+        app:flow_horizontalGap="20dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/flow" />
+        app:layout_constraintTop_toBottomOf="@+id/claculations" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="1"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="2"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button3"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="3"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button4"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="4"/>
+
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/btnLn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="button5, button6, button7, button8"
+        app:flow_horizontalGap="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/btnLn1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button5"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="1"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button6"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="2"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button7"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="3"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button8"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="4"/>
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/btnLn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:constraint_referenced_ids="button9, button10, button11, button12"
+        app:flow_horizontalGap="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/btnLn2" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button9"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="1"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button10"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="2"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button11"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="3"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button12"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="4"/>
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/btnLn4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:constraint_referenced_ids="button13, button14, button15, button16"
+        app:flow_horizontalGap="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/btnLn3" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button13"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="1"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button14"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="2"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button15"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="3"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button16"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="4"/>
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/btnLn5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:constraint_referenced_ids="button17, button18, button19, button20"
+        app:flow_horizontalGap="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/btnLn4" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button17"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="1"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button18"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="2"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button19"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="3"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button20"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/no_btns"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="4"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
