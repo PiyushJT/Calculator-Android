@@ -3,6 +3,7 @@ package com.piyushjt.mycalculator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 
 class MainActivity : AppCompatActivity() {
@@ -11,20 +12,26 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val btn0 = findViewById<AppCompatButton>(R.id.btn0)
-        val btn1 = findViewById<AppCompatButton>(R.id.btn1)
-        val btn2 = findViewById<AppCompatButton>(R.id.btn2)
-        val btn3 = findViewById<AppCompatButton>(R.id.btn3)
-        val btn4 = findViewById<AppCompatButton>(R.id.btn4)
-        val btn5 = findViewById<AppCompatButton>(R.id.btn5)
-        val btn6 = findViewById<AppCompatButton>(R.id.btn6)
-        val btn7 = findViewById<AppCompatButton>(R.id.btn7)
-        val btn8 = findViewById<AppCompatButton>(R.id.btn8)
-        val btn9 = findViewById<AppCompatButton>(R.id.btn9)
-        val btn00 = findViewById<AppCompatButton>(R.id.btn00)
-        val btnDot = findViewById<AppCompatButton>(R.id.btnDot)
+
 
         fun doo(){
+
+            val btn0 = findViewById<AppCompatButton>(R.id.btn0)
+            val btn1 = findViewById<AppCompatButton>(R.id.btn1)
+            val btn2 = findViewById<AppCompatButton>(R.id.btn2)
+            val btn3 = findViewById<AppCompatButton>(R.id.btn3)
+            val btn4 = findViewById<AppCompatButton>(R.id.btn4)
+            val btn5 = findViewById<AppCompatButton>(R.id.btn5)
+            val btn6 = findViewById<AppCompatButton>(R.id.btn6)
+            val btn7 = findViewById<AppCompatButton>(R.id.btn7)
+            val btn8 = findViewById<AppCompatButton>(R.id.btn8)
+            val btn9 = findViewById<AppCompatButton>(R.id.btn9)
+            val btn00 = findViewById<AppCompatButton>(R.id.btn00)
+            val btnDot = findViewById<AppCompatButton>(R.id.btnDot)
+
+            val btnAC = findViewById<AppCompatButton>(R.id.btnAC)
+            val btnC = findViewById<AppCompatButton>(R.id.btnC)
+
             btn0.setOnClickListener {
                 addNo("0")
             }
@@ -61,24 +68,51 @@ class MainActivity : AppCompatActivity() {
             btnDot.setOnClickListener {
                 addNo(".")
             }
+
+            btnAC.setOnClickListener {
+                clear("AC")
+            }
+            btnC.setOnClickListener {
+                clear("C")
+            }
         }
 
         doo()
     }
     fun addNo(no: String){
-        val mainText= findViewById<TextView>(R.id.MainText)
-        val dispTxt= mainText.text
+        val calcText= findViewById<TextView>(R.id.CalcTxt)
+        val dispTxt= calcText.text
 
         if (dispTxt!="0"){
             if (no=="." && dispTxt.contains(".")){
             }
-            else {
+            else if(dispTxt.length < 20){
                 val txt= dispTxt.toString() + no
-                mainText.text = txt
+                calcText.text = txt
+            }
+            else{
+                Toast.makeText(applicationContext, "Maximum length reached", Toast.LENGTH_SHORT).show()
             }
         }
         else {
-            mainText.text = no
+            calcText.text = no
+        }
+    }
+
+    fun clear(CorAC: String){
+        val calcText= findViewById<TextView>(R.id.CalcTxt)
+        var dispTxt= calcText.text
+
+        if(CorAC == "AC"){
+            calcText.text= "0"
+        }
+        else if (CorAC == "C"){
+            if (dispTxt.length != 1) {
+                calcText.text = dispTxt.dropLast(1)
+            }
+            else{
+                calcText.text= "0"
+            }
         }
     }
 }

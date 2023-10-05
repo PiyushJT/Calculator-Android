@@ -46,13 +46,12 @@
     <TextView
         android:id="@+id/title"
         android:layout_width="150dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginStart="5dp"
         android:fontFamily="@font/saira"
-        android:lineHeight="40sp"
-        android:text="My Calculator"
+        android:text="@string/my_calculator"
         android:textColor="#ffffff"
-        android:textSize="34sp"
+        android:textSize="28sp"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,37 +59,49 @@
     <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/calculations"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:layout_marginTop="16dp"
         android:background="#4F5255"
-        app:constraint_referenced_ids="editText"
+        app:constraint_referenced_ids="CalcTxt, AnsTxt"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <TextView
-        android:id="@+id/MainText"
+        android:id="@+id/CalcTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
         android:fontFamily="@font/saira"
         android:inputType="none"
         android:padding="10dp"
         android:text="0"
         android:textColor="@color/white"
-        android:textSize="40sp"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/calculations" />
+
+    <TextView
+        android:id="@+id/AnsTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/saira"
+        android:inputType="none"
+        android:padding="10dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/calculations"
-        app:layout_constraintEnd_toEndOf="@+id/calculations" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline" />
 
     <LinearLayout
         android:id="@+id/allBtns"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@id/calculations">
+        app:layout_constraintStart_toStartOf="@+id/guideline2">
 
         <LinearLayout
             android:id="@+id/btnsLn1"
