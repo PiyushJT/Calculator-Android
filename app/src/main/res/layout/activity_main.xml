@@ -201,7 +201,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/opp_btns"
-                android:text="x"
+                android:text="×"
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -341,7 +341,7 @@
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnEql"
+                android:id="@+id/btnAns"
                 android:layout_width="135dp"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"

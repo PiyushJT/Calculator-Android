@@ -1,5 +1,6 @@
 package com.piyushjt.mycalculator
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -12,7 +13,6 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         fun doo(){
 
@@ -31,6 +31,14 @@ class MainActivity : AppCompatActivity() {
 
             val btnAC = findViewById<AppCompatButton>(R.id.btnAC)
             val btnC = findViewById<AppCompatButton>(R.id.btnC)
+
+            val btnPls= findViewById<AppCompatButton>(R.id.btnPls)
+            val btnMns= findViewById<AppCompatButton>(R.id.btnMns)
+            val btnMltpl= findViewById<AppCompatButton>(R.id.btnMltpl)
+            val btnDvd= findViewById<AppCompatButton>(R.id.btnDvd)
+
+            val btnAns= findViewById<AppCompatButton>(R.id.btnAns)
+
 
             btn0.setOnClickListener {
                 addNo("0")
@@ -66,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                 addNo("00")
             }
             btnDot.setOnClickListener {
-                addNo(".")
+                addPnt()
             }
 
             btnAC.setOnClickListener {
@@ -74,6 +82,23 @@ class MainActivity : AppCompatActivity() {
             }
             btnC.setOnClickListener {
                 clear("C")
+            }
+
+            btnPls.setOnClickListener {
+                oprtn("+")
+            }
+            btnMns.setOnClickListener {
+                oprtn("-")
+            }
+            btnMltpl.setOnClickListener {
+                oprtn("×")
+            }
+            btnDvd.setOnClickListener {
+                oprtn("/")
+            }
+
+            btnAns.setOnClickListener {
+                ans()
             }
         }
 
@@ -84,12 +109,11 @@ class MainActivity : AppCompatActivity() {
         val dispTxt= calcText.text
 
         if (dispTxt!="0"){
-            if (no=="." && dispTxt.contains(".")){
-            }
-            else if(dispTxt.length < 20){
-                val txt= dispTxt.toString() + no
+            if(dispTxt.length < 20) {
+                val txt = dispTxt.toString() + no
                 calcText.text = txt
             }
+
             else{
                 Toast.makeText(applicationContext, "Maximum length reached", Toast.LENGTH_SHORT).show()
             }
@@ -97,6 +121,29 @@ class MainActivity : AppCompatActivity() {
         else {
             calcText.text = no
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    fun addPnt(){
+        val calcText= findViewById<TextView>(R.id.CalcTxt)
+        val dispTxt= calcText.text.toString()
+
+
+        val lasts = listOf<Int>(dispTxt.lastIndexOf("+"),
+            dispTxt.lastIndexOf("-"),
+            dispTxt.lastIndexOf("×"),
+            dispTxt.lastIndexOf("/"))
+
+        val lstIndx= lasts.max()
+
+        val dsplTxtFrPnt = dispTxt.subSequence(lstIndx+1,dispTxt.length)
+
+        if (dsplTxtFrPnt.contains(".")){
+        }
+        else{
+            calcText.text= ("$dispTxt.")
+        }
+
     }
 
     fun clear(CorAC: String){
@@ -115,4 +162,25 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    @SuppressLint("SetTextI18n")
+    fun oprtn(opp: String){
+        val calcText= findViewById<TextView>(R.id.CalcTxt)
+        val dispTxt= calcText.text.toString()
+
+        if (dispTxt.last().toString() !in listOf<String>("+", "-", "×", "/")) {
+            calcText.text = ("$dispTxt$opp")
+        }
+    }
+
+    fun ans(){
+        val calcText= findViewById<TextView>(R.id.CalcTxt)
+        val dispTxt= calcText.text
+
+        val ansText= findViewById<TextView>(R.id.AnsTxt)
+
+
+        Toast.makeText(applicationContext, dispTxt, Toast.LENGTH_SHORT).show()
+
+    } // this function is incomplete
 }
