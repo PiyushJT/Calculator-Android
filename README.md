@@ -1,3 +1,7 @@
 # Calculator-Android
 It is an android app code
-Can be opened in android
+<br>
+Can be opened in android studio
+<br>
+<br>
+<img src="My Calculator ScreenShot.jpg" alt="Calculator Screenshot" height="400">
