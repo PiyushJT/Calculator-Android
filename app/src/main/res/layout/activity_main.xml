@@ -72,6 +72,7 @@
         android:id="@+id/CalcTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxWidth="300dp"
         android:fontFamily="@font/saira"
         android:inputType="none"
         android:padding="10dp"

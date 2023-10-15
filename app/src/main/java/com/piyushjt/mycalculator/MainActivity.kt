@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
+// Toast.makeText(applicationContext, cnt, Toast.LENGTH_SHORT).show()
 import androidx.appcompat.widget.AppCompatButton
 
 class MainActivity : AppCompatActivity() {
@@ -109,7 +110,7 @@ class MainActivity : AppCompatActivity() {
         val dispTxt= calcText.text
 
         if (dispTxt!="0"){
-            if(dispTxt.length < 20) {
+            if(dispTxt.length < 41) {
                 val txt = dispTxt.toString() + no
                 calcText.text = txt
             }
@@ -175,12 +176,68 @@ class MainActivity : AppCompatActivity() {
 
     fun ans(){
         val calcText= findViewById<TextView>(R.id.CalcTxt)
-        val dispTxt= calcText.text
+        val dispTxt= calcText.text.toString()
 
         val ansText= findViewById<TextView>(R.id.AnsTxt)
 
+        val operators= listOf("+", "-", "×", "/")
 
-        Toast.makeText(applicationContext, dispTxt, Toast.LENGTH_SHORT).show()
+        if (operators.any { dispTxt.endsWith(it) }) {
+            ansText.text = "Syntax Error"
+        } else {
+            try {
+                val result = evaluateExpression(dispTxt)
+                ansText.text = "$result"
+            } catch (e: Exception) {
+                ansText.text = "Error"
+            }
+        }
 
-    } // this function is incomplete
+
+    }
+
+    fun evaluateExpression(expression: String): Double {
+        try {
+            val parts = expression.split(Regex("(?=[+×/\\-])|(?<=[+×/\\-])"))
+
+//            Toast.makeText(applicationContext, parts.toString(), Toast.LENGTH_LONG).show()
+
+            val values = mutableListOf<Double>()
+            val ops = mutableListOf<Char>()
+
+            for (part in parts) {
+                when {
+                    part.matches(Regex("[0-9]+(\\.[0-9]+)?")) -> values.add(part.toDouble())
+                    part in listOf("+", "-", "×", "/") -> ops.add(part[0])
+                    else -> throw IllegalArgumentException("Invalid character: $part")
+                }
+            }
+
+            while (ops.isNotEmpty()) {
+                val op = ops.removeAt(0)
+                val a = values.removeAt(0)
+                val b = values.removeAt(0)
+                values.add(performOperation(a, b, op))
+            }
+
+            if (values.size == 1) {
+                return values[0]
+            } else {
+                throw IllegalArgumentException("Invalid expression")
+            }
+        } catch (e: Exception) {
+            throw e
+        }
+    }
+
+    fun performOperation(a: Double, b: Double, operator: Char): Double {
+        return when (operator) {
+            '+' -> a + b
+            '-' -> a - b
+            '×' -> a * b
+            '/' -> a / b
+            else -> throw IllegalArgumentException("Invalid operator: $operator")
+        }
+    }
 }
+
