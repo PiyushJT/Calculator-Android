@@ -1,8 +1,13 @@
 package com.piyushjt.mycalculator
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 // Toast.makeText(applicationContext, cnt, Toast.LENGTH_SHORT).show()
@@ -162,6 +167,7 @@ class MainActivity : AppCompatActivity() {
                 calcText.text= "0"
             }
         }
+        vibe()
     }
 
     @SuppressLint("SetTextI18n")
@@ -192,8 +198,7 @@ class MainActivity : AppCompatActivity() {
                 ansText.text = "Error"
             }
         }
-
-
+        vibe()
     }
 
     fun evaluateExpression(expression: String): Double {
@@ -239,5 +244,18 @@ class MainActivity : AppCompatActivity() {
             else -> throw IllegalArgumentException("Invalid operator: $operator")
         }
     }
+
+
+    fun vibe(){
+        val vibrate= getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+
+        if (Build.VERSION.SDK_INT>= 26){
+            vibrate.vibrate(VibrationEffect.createOneShot(55, VibrationEffect.DEFAULT_AMPLITUDE))
+        }
+        else{
+            vibrate.vibrate(55)
+        }
+    }
+
 }
 
